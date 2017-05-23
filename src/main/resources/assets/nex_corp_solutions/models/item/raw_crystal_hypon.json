@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "nex_corp_solutions:items/hypon/raw_crystal_hypon_back",
+    "layer1": "nex_corp_solutions:items/hypon/raw_crystal_hypon"
+  }
+}

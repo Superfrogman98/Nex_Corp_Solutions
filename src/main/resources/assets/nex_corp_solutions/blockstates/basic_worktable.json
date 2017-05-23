@@ -1,0 +1,12 @@
+{
+  "forge_marker": 1,
+  "variants": {
+      "normal": {
+          "model": "nex_corp_solutions:basic_worktable"
+      },
+      "inventory": {
+        "model": "nex_corp_solutions:basic_worktable",
+        "transform": "forge:default-block"
+      }
+  }
+}

@@ -1,0 +1,10 @@
+# Items
+item.plate_carbon.name= Carbon Plate
+item.raw_crystal_hypon.name= Raw Hypon Crystal
+item.corn.name= Corn
+item.corn_seeds.name= Corn Seeds
+# Blocks
+tile.ore_hypon.name= Hypon Ore
+tile.basic_worktable.name= Basic Worktable
+#Creative Tab
+itemGroup.nex_corp_solutions= Nex Corp Solutions

@@ -1,0 +1,16 @@
+[
+{
+  "modid": "nex_corp_solutions",
+  "name": "Nex Corp Solutions",
+  "description": "Adds machines and gadgets that do things.",
+  "version": "",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Superfrogman98"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
