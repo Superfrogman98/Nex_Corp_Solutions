@@ -31,11 +31,11 @@ public class BlockOreItemDrop extends BlockOre {
 
     //when fortune is used adds bonus items to dropping
     public int quantityDroppedWithBonus(int fortune, Random random) {
-        return MathHelper.clamp_int(this.quantityDropped(random) + random.nextInt(fortune + 1), minDrops, maxDrops);
+        return MathHelper.clamp_int(this.quantityDropped() + random.nextInt(fortune + 1), minDrops, maxDrops);
     }
 
     //by default drops one item
-    public int quantityDropped(Random random) {
+    public int quantityDropped() {
         return minDrops;
     }
 }
