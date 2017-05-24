@@ -10,6 +10,7 @@ import Superfrogman98.NCS.Blocks.ModBlocks;
 import Superfrogman98.NCS.Blocks.ModBlocksCrops;
 import Superfrogman98.NCS.Client.NCS_Tab;
 import Superfrogman98.NCS.Items.ModItems;
+import Superfrogman98.NCS.Items.Tools.CustomToolClasses;
 import Superfrogman98.NCS.Recipes.ModRecipes;
 import Superfrogman98.NCS.World.ModWorldGen;
 import net.minecraftforge.fml.common.Mod;
@@ -44,17 +45,20 @@ public class NexCorpSolutions {
         ModItems.init();
         ModBlocks.init();
         GameRegistry.registerWorldGenerator(new ModWorldGen(),3);
+
     }
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         proxy.init(event);
+
         ModRecipes.init();
     }
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {
         proxy.postInit(event);
+        CustomToolClasses.init();
     }
 
 
