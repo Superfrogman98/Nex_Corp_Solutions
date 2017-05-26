@@ -1,12 +1,13 @@
 {
   "forge_marker": 1,
+  "defaults": {
+    "custom": { "flip-v": true },
+    "model": "nex_corp_solutions:table.obj"
+  },
   "variants": {
-      "normal": {
-          "model": "nex_corp_solutions:basic_worktable"
-      },
-      "inventory": {
-        "model": "nex_corp_solutions:basic_worktable",
-        "transform": "forge:default-block"
-      }
+    "normal": [{}],
+    "inventory": [{
+      "transform": "forge:default-block"
+    }]
   }
 }
