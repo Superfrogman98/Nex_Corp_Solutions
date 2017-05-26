@@ -1,6 +1,7 @@
 package Superfrogman98.NCS.Blocks.TileEntities;
 
 import Superfrogman98.NCS.Blocks.BlockBase;
+import Superfrogman98.NCS.NexCorpSolutions;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
@@ -23,6 +24,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * Created by Superfrogman98 on 5/21/2017.
  */
 public class BlockBasicWorktable extends BlockBase implements ITileEntityProvider {
+
+    public static final int GUI_ID = 1;
+
 
     public BlockBasicWorktable(){
         super(Material.ROCK,"basic_worktable");
@@ -68,36 +72,15 @@ public class BlockBasicWorktable extends BlockBase implements ITileEntityProvide
     //interaction with the model
     @Override
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ){
-        if (!world.isRemote) {
-            TileEntityBasicWorktable te = getTE(world, pos);
-            if (te.getStack() == null) {
-                if (player.getHeldItem(hand) != null) {
-                    // There is no item in the pedestal and the player is holding an item. We move that item
-                    // to the pedestal
-                    te.setStack(player.getHeldItem(hand));
-                    player.inventory.setInventorySlotContents(player.inventory.currentItem, null);
-                    // Make sure the client knows about the changes in the player inventory
-                    player.openContainer.detectAndSendChanges();
-                }
-            } else {
-                // There is a stack in the pedestal. In this case we remove it and try to put it in the
-                // players inventory if there is room
-                ItemStack stack = te.getStack();
-                te.setStack(null);
-                if (!player.inventory.addItemStackToInventory(stack)) {
-                    // Not possible. Throw item in the world
-                    EntityItem entityItem = new EntityItem(world, pos.getX(), pos.getY()+1, pos.getZ(), stack);
-                    world.spawnEntityInWorld(entityItem);
-                } else {
-                    player.openContainer.detectAndSendChanges();
-                }
-            }
+        if(world.isRemote){
+            return true;
         }
-
-        // Return true also on the client to make sure that MC knows we handled this and will not try to place
-        // a block on the client
+        TileEntity te = world.getTileEntity(pos);
+        if(!(te instanceof TileEntityBasicWorktable)){
+            return false;
+        }
+        player.openGui(NexCorpSolutions.instance,GUI_ID, world, pos.getX(), pos.getY(), pos.getZ());
         return true;
-
     }
 
 }
