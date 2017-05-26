@@ -39,7 +39,7 @@ public class ToolSledgeHammer extends ItemTool implements ItemModelProvider{
         this.attackSpeed = -3.0f;
         this.damageVsEntity = material.getDamageVsEntity() +3;
         MinecraftForge.EVENT_BUS.register(this);
-        System.out.println("SilkTouch on hammers: "+ Enchantments.SILK_TOUCH.canApply(new ItemStack(this)));
+        //System.out.println("SilkTouch on hammers: "+ Enchantments.SILK_TOUCH.canApply(new ItemStack(this)));
 
     }
 
