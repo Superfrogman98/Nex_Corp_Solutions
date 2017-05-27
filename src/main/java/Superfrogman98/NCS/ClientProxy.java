@@ -1,10 +1,11 @@
 package Superfrogman98.NCS;
 
-/**
+/*
  * Created by Superfrogman98 on 5/20/2017.
  * code that is run only on client
  */
 
+import Superfrogman98.NCS.Blocks.TileEntities.TESR_BasicWorktable;
 import Superfrogman98.NCS.Blocks.TileEntities.TileEntityBasicWorktable;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -25,6 +26,7 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void init(FMLInitializationEvent event) {
         super.init(event);
+        registerRenderers();
     }
 
     @Override
@@ -38,6 +40,7 @@ public class ClientProxy extends CommonProxy {
 
     @Override
     public void registerRenderers(){
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBasicWorktable.class, new TESR_BasicWorktable());
     }
 
 }
