@@ -1,6 +1,6 @@
 package Superfrogman98.NCS;
 
-/**
+/*
  * Created by Superfrogman98 on 5/20/2017.
  * A minecraft mod to add various processing machines
  */
@@ -14,6 +14,7 @@ import Superfrogman98.NCS.Items.Tools.CustomToolClasses;
 import Superfrogman98.NCS.Network.PacketRequestUpdateBasicWorktable;
 import Superfrogman98.NCS.Network.PacketUpdateBasicWorktable;
 import Superfrogman98.NCS.Recipes.ModRecipes;
+import Superfrogman98.NCS.Sounds.ModSounds;
 import Superfrogman98.NCS.World.ModWorldGen;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -46,6 +47,7 @@ public class NexCorpSolutions {
     public void preInit(FMLPreInitializationEvent event ) {
         System.out.println(name + " is loading!");
         proxy.preInit(event);
+        ModSounds.init();
         ModBlocksCrops.init();
         ModItems.init();
         ModBlocks.init();

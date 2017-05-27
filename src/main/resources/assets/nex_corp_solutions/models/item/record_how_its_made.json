@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "nex_corp_solutions:items/record_how_its_made"
+  }
+}

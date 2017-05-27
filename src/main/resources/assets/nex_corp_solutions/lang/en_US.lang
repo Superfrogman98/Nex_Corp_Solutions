@@ -12,7 +12,9 @@ item.iron_sledgehammer.name= Iron Sledgehammer
 tile.ore_hypon.name= Hypon Ore
 tile.basic_worktable.name= Basic Worktable
 
-
-
 #Creative Tab
 itemGroup.nex_corp_solutions= Nex Corp Solutions
+
+#records
+item.record_how_its_made.name= Music Disc (How It's Made)
+item.record.how_its_made.desc= Don DiNicola - How It's Made Theme

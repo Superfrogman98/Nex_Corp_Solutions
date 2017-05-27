@@ -1,7 +1,8 @@
 package Superfrogman98.NCS.Blocks;
 
-/**
+/*
  * Created by Superfrogman98 on 5/21/2017.
+ * registers blocks for the mod
  */
 
 import Superfrogman98.NCS.Blocks.TileEntities.BlockBasicWorktable;
@@ -20,7 +21,7 @@ public class ModBlocks {
     public static void init(){
         oreHypon = register(new BlockOreItemDrop("ore_hypon","oreHypon",5f,3f, ModItems.rawCrystalHypon,1,3));
         basicWorktable = register(new BlockBasicWorktable());
-        System.out.println("----------------------Blocks registered----------------------");
+        //System.out.println("----------------------Blocks registered----------------------");
     }
 
     private static <T extends Block> T register(T block, ItemBlock itemBlock){

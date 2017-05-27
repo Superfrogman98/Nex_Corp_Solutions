@@ -1,13 +1,19 @@
 package Superfrogman98.NCS.Blocks.TileEntities;
 
+import Superfrogman98.NCS.Network.PacketRequestUpdateBasicWorktable;
+import Superfrogman98.NCS.Network.PacketUpdateBasicWorktable;
+import Superfrogman98.NCS.NexCorpSolutions;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
-
+import net.minecraft.world.World;
 
 
 /**
@@ -16,12 +22,28 @@ import net.minecraftforge.items.ItemStackHandler;
 public class TileEntityBasicWorktable extends TileEntity {
     public static int SIZE = 9;
 
-    private ItemStackHandler itemStackHandler = new ItemStackHandler(SIZE){
+    public ItemStackHandler itemStackHandler = new ItemStackHandler(SIZE){
         @Override
         protected void onContentsChanged(int slot){
             TileEntityBasicWorktable.this.markDirty();
+            if(!worldObj.isRemote){
+                //System.out.println("Basic worktable contents changed");
+                NexCorpSolutions.network.sendToAllAround(new PacketUpdateBasicWorktable(TileEntityBasicWorktable.this), new NetworkRegistry.TargetPoint(worldObj.provider.getDimension(), pos.getX(), pos.getY(), pos.getZ(), 64));
+            }
         }
     };
+
+    @Override
+    public void onLoad(){
+        if(worldObj.isRemote){
+            NexCorpSolutions.network.sendToServer(new PacketRequestUpdateBasicWorktable(this));
+        }
+    }
+
+    @Override
+    public AxisAlignedBB getRenderBoundingBox() {
+        return new AxisAlignedBB(getPos(), getPos().add(1, 2, 1));
+    }
 
     @Override
     public void readFromNBT(NBTTagCompound compound){
