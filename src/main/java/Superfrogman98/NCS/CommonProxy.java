@@ -4,7 +4,7 @@ package Superfrogman98.NCS;
  * Created by Superfrogman98 on 5/20/2017.
  */
 
-import Superfrogman98.NCS.GUIs.BasicWorktable.GuiProxyBasicWorktable;
+import Superfrogman98.NCS.gui.basic_worktable.GuiProxyBasicWorktable;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;

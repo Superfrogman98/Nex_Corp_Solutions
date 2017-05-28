@@ -5,8 +5,8 @@ package Superfrogman98.NCS;
  * code that is run only on client
  */
 
-import Superfrogman98.NCS.Blocks.TileEntities.TESR_BasicWorktable;
-import Superfrogman98.NCS.Blocks.TileEntities.TileEntityBasicWorktable;
+import Superfrogman98.NCS.blocks.tile_entities.TESR_BasicWorktable;
+import Superfrogman98.NCS.blocks.tile_entities.TileEntityBasicWorktable;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;

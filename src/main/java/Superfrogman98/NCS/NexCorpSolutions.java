@@ -6,16 +6,16 @@ package Superfrogman98.NCS;
  */
 
 //imports
-import Superfrogman98.NCS.Blocks.ModBlocks;
-import Superfrogman98.NCS.Blocks.ModBlocksCrops;
-import Superfrogman98.NCS.Client.NCS_Tab;
-import Superfrogman98.NCS.Items.ModItems;
-import Superfrogman98.NCS.Items.Tools.CustomToolClasses;
-import Superfrogman98.NCS.Network.PacketRequestUpdateBasicWorktable;
-import Superfrogman98.NCS.Network.PacketUpdateBasicWorktable;
-import Superfrogman98.NCS.Recipes.ModRecipes;
-import Superfrogman98.NCS.Sounds.ModSounds;
-import Superfrogman98.NCS.World.ModWorldGen;
+import Superfrogman98.NCS.blocks.ModBlocks;
+import Superfrogman98.NCS.blocks.ModBlocksCrops;
+import Superfrogman98.NCS.client.NCS_Tab;
+import Superfrogman98.NCS.items.ModItems;
+import Superfrogman98.NCS.items.tools.CustomToolClasses;
+import Superfrogman98.NCS.network.PacketRequestUpdateBasicWorktable;
+import Superfrogman98.NCS.network.PacketUpdateBasicWorktable;
+import Superfrogman98.NCS.recipes.ModRecipes;
+import Superfrogman98.NCS.sounds.ModSounds;
+import Superfrogman98.NCS.world.ModWorldGen;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
