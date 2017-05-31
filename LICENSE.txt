@@ -100,7 +100,7 @@ The Addon may be distributed under a different license.
 
 The User may create Modpack(s) which include the Mod.
 
-Modpacks containing the Mod may not be used to generate revenue unless specifically granted this right by the Author.
+Modpacks containing the Mod may not be used to generate revenue unless specifically granted this right by the Author directly, or by publishing the pack on the curse/curseforge site.
 
 Modpacks containing the Mod may be made and distributed by the Modpack Creator through any distribution channel they choose.
 
