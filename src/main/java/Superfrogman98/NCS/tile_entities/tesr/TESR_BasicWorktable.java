@@ -1,5 +1,6 @@
-package Superfrogman98.NCS.blocks.tile_entities;
+package Superfrogman98.NCS.tile_entities.tesr;
 
+import Superfrogman98.NCS.tile_entities.TileEntityBasicWorktable;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.RenderHelper;
@@ -12,7 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.ForgeHooksClient;
 import org.lwjgl.opengl.GL11;
 
-import static Superfrogman98.NCS.blocks.tile_entities.BlockBasicWorktable.FACING;
+import static Superfrogman98.NCS.blocks.BlockBasicWorktable.FACING;
 
 /**
  * Created by Superfrogman98 on 5/26/2017.
@@ -21,7 +22,7 @@ import static Superfrogman98.NCS.blocks.tile_entities.BlockBasicWorktable.FACING
 public class TESR_BasicWorktable extends TileEntitySpecialRenderer<TileEntityBasicWorktable> {
     @Override                                                                    //partialTicks, destroy stage
     public void renderTileEntityAt(TileEntityBasicWorktable te, double x, double y, double z, float p_180535_8_, int p_180535_9_) {
-        ItemStack stack = te.itemStackHandler.getStackInSlot(0);
+        ItemStack stack = te.getStackInSlot(0);
         if (stack != null ) {
             GlStateManager.enableRescaleNormal();
             GlStateManager.alphaFunc(GL11.GL_GREATER, 0.1f);

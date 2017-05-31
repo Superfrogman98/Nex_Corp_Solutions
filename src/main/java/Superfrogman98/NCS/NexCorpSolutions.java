@@ -37,7 +37,7 @@ public class NexCorpSolutions {
     public static SimpleNetworkWrapper network;
 
     //initialize proxy
-    @SidedProxy(serverSide = "Superfrogman98.NCS.ServerProxy", clientSide = "Superfrogman98.NCS.ClientProxy")
+    @SidedProxy(serverSide = "Superfrogman98.NCS.ServerProxy", clientSide = "Superfrogman98.NCS.client.ClientProxy")
     public static CommonProxy proxy;
 
     @Mod.Instance(modId)

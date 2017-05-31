@@ -1,6 +1,6 @@
 package Superfrogman98.NCS.network;
 
-import Superfrogman98.NCS.blocks.tile_entities.TileEntityBasicWorktable;
+import Superfrogman98.NCS.tile_entities.TileEntityBasicWorktable;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;

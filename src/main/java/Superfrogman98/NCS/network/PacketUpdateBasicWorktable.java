@@ -1,6 +1,6 @@
 package Superfrogman98.NCS.network;
 
-import Superfrogman98.NCS.blocks.tile_entities.TileEntityBasicWorktable;
+import Superfrogman98.NCS.tile_entities.TileEntityBasicWorktable;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
@@ -23,7 +23,7 @@ public class PacketUpdateBasicWorktable implements IMessage {
     }
 
     public PacketUpdateBasicWorktable(TileEntityBasicWorktable te){
-        this(te.getPos(), te.itemStackHandler.getStackInSlot(0));
+        this(te.getPos(), te.getStackInSlot(0));
     }
 
     public PacketUpdateBasicWorktable(){}
@@ -46,7 +46,7 @@ public class PacketUpdateBasicWorktable implements IMessage {
         public IMessage onMessage(PacketUpdateBasicWorktable message, MessageContext ctx) {
             Minecraft.getMinecraft().addScheduledTask(() -> {
                 TileEntityBasicWorktable te = (TileEntityBasicWorktable) Minecraft.getMinecraft().theWorld.getTileEntity(message.pos);
-                te.itemStackHandler.setStackInSlot(0, message.stack);
+                te.setInventorySlotContents(0,message.stack);
             });
             return null;
         }

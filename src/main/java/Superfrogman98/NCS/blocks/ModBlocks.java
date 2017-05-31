@@ -5,7 +5,6 @@ package Superfrogman98.NCS.blocks;
  * registers blocks for the mod
  */
 
-import Superfrogman98.NCS.blocks.tile_entities.BlockBasicWorktable;
 import Superfrogman98.NCS.items.ItemModelProvider;
 import Superfrogman98.NCS.items.ItemOreDict;
 import Superfrogman98.NCS.items.ModItems;

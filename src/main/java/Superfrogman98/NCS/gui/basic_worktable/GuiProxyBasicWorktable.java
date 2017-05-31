@@ -1,6 +1,7 @@
 package Superfrogman98.NCS.gui.basic_worktable;
 
-import Superfrogman98.NCS.blocks.tile_entities.TileEntityBasicWorktable;
+import Superfrogman98.NCS.tile_entities.TileEntityBasicWorktable;
+import Superfrogman98.NCS.containers.ContainerBasicWorktable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;

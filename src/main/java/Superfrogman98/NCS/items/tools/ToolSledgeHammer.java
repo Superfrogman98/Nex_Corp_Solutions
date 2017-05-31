@@ -47,20 +47,24 @@ public class ToolSledgeHammer extends ItemTool implements ItemModelProvider{
 
         if (event.getHarvester() != null) { //checks that harvester is player
             EntityPlayer player = event.getHarvester();
-            if (player.getHeldItemMainhand().getItem().getUnlocalizedName().contains("sledgehammer")) { //checks the registry name to have sledgehammer in it...what will this do to other mods?
-                //determines what to overide if needed for different blocks drop, have to add in custom tool classes for them to be minable first
-                int amtDropped = 1;
-                if (event.getFortuneLevel() > 0) {
-                    amtDropped = MathHelper.clamp_int(1 + random.nextInt(event.getFortuneLevel() + 1), 1, 3);
-                }
-                if (event.getState().getBlock().getUnlocalizedName().equals(Blocks.COBBLESTONE.getUnlocalizedName())) {
-                    event.getDrops().clear();
-                    event.getDrops().add(new ItemStack(Blocks.GRAVEL, amtDropped, 0));
-                } else if (event.getState().getBlock().getUnlocalizedName().equals(Blocks.GRAVEL.getUnlocalizedName())) {
-                    event.getDrops().clear();
-                    event.getDrops().add(new ItemStack(Blocks.SAND, amtDropped, 0));
+            if(player.getHeldItemMainhand()!= null){
+                if (player.getHeldItemMainhand().getItem().getUnlocalizedName().contains("sledgehammer")) { //checks the registry name to have sledgehammer in it
+                    //determines what to overide if needed for different blocks drop, have to add the block in custom tool classes for them to be minable first
+                    int amtDropped = 1;
+                    if (event.getFortuneLevel() > 0) {
+                        amtDropped = MathHelper.clamp_int(1 + random.nextInt(event.getFortuneLevel() + 1), 1, 3);
+                    }
+                    if (event.getState().getBlock().getUnlocalizedName().equals(Blocks.COBBLESTONE.getUnlocalizedName())) {
+                        event.getDrops().clear();
+                        event.getDrops().add(new ItemStack(Blocks.GRAVEL, amtDropped, 0));
+                    } else if (event.getState().getBlock().getUnlocalizedName().equals(Blocks.GRAVEL.getUnlocalizedName())) {
+                        event.getDrops().clear();
+                        event.getDrops().add(new ItemStack(Blocks.SAND, amtDropped, 0));
+                    }
                 }
             }
+
+
         }
     }
     @Override

@@ -1,12 +1,14 @@
-package Superfrogman98.NCS;
+package Superfrogman98.NCS.client;
 
 /*
  * Created by Superfrogman98 on 5/20/2017.
  * code that is run only on client
  */
 
-import Superfrogman98.NCS.blocks.tile_entities.TESR_BasicWorktable;
-import Superfrogman98.NCS.blocks.tile_entities.TileEntityBasicWorktable;
+import Superfrogman98.NCS.CommonProxy;
+import Superfrogman98.NCS.NexCorpSolutions;
+import Superfrogman98.NCS.tile_entities.tesr.TESR_BasicWorktable;
+import Superfrogman98.NCS.tile_entities.TileEntityBasicWorktable;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;

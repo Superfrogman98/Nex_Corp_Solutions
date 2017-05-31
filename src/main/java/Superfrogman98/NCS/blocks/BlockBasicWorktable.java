@@ -1,15 +1,16 @@
-package Superfrogman98.NCS.blocks.tile_entities;
+package Superfrogman98.NCS.blocks;
 
-import Superfrogman98.NCS.blocks.BlockBase;
 import Superfrogman98.NCS.NexCorpSolutions;
+import Superfrogman98.NCS.tile_entities.TileEntityBasicWorktable;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.item.EntityItem;
+
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
@@ -20,8 +21,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraftforge.items.CapabilityItemHandler;
-import net.minecraftforge.items.IItemHandler;
+
 
 /**
  * Created by Superfrogman98 on 5/21/2017.
@@ -103,18 +103,12 @@ public class BlockBasicWorktable extends BlockBase implements ITileEntityProvide
     }
 
     @Override
-    public void breakBlock(World world, BlockPos pos, IBlockState state) {
-        TileEntityBasicWorktable tile = (TileEntityBasicWorktable) world.getTileEntity(pos);
-        IItemHandler itemHandler = tile.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.NORTH);
-        for(int i = 0; i<tile.itemStackHandler.getSlots(); i++){
-            ItemStack stack = itemHandler.getStackInSlot(i);
-            if (stack != null) {
-                EntityItem item = new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), stack);
-                world.spawnEntityInWorld(item);
-            }
-        }
-        super.breakBlock(world, pos, state);
+    public void breakBlock(World world, BlockPos pos, IBlockState blockstate) {
+        TileEntityBasicWorktable te = (TileEntityBasicWorktable) world.getTileEntity(pos);
+        InventoryHelper.dropInventoryItems(world, pos, te);
+        super.breakBlock(world, pos, blockstate);
     }
+
 
     //interaction with the model
     @Override
@@ -126,7 +120,9 @@ public class BlockBasicWorktable extends BlockBase implements ITileEntityProvide
         if(!(te instanceof TileEntityBasicWorktable)){
             return false;
         }
-        player.openGui(NexCorpSolutions.instance,GUI_ID, world, pos.getX(), pos.getY(), pos.getZ());
+        if(!player.isSneaking()){
+            player.openGui(NexCorpSolutions.instance, GUI_ID , world, pos.getX(), pos.getY(), pos.getZ());
+        }
         return true;
     }
 
