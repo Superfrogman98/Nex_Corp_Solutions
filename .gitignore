@@ -18,6 +18,8 @@ build
 .gradle
 gradlew.bat
 gradle.properties
+gradle
+gradlew
 
 # other
 eclipse
