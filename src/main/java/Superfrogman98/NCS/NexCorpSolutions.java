@@ -13,13 +13,13 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 
-@Mod(modid = NexCorpSolutions.modId, name = NexCorpSolutions.name, version = NexCorpSolutions.version, acceptedMinecraftVersions = "[1.10.2]")
+@Mod(modid = NexCorpSolutions.modId, name = NexCorpSolutions.name, version = NexCorpSolutions.version, acceptedMinecraftVersions = "[1.12]")
 
 public class NexCorpSolutions {
 
     public static final String modId = "nex_corp_solutions";
     public static final String name = "Nex Corp Solutions";
-    public static final String version = "0.0.1-mc1.12.2";
+    public static final String version = "0.0.1-mc1.12";
     //public static final NCS_Tab creativeTab = new NCS_Tab();
     public static SimpleNetworkWrapper network;
 
