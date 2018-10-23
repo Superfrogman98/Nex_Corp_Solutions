@@ -7,10 +7,12 @@ package Superfrogman98.NCS;
 
 //imports
 
+import Superfrogman98.NCS.blocks.ModBlocks;
 import Superfrogman98.NCS.configs.ConfigNexCorpSolutions;
 import Superfrogman98.NCS.creative_tabs.NCS_Tab;
 import Superfrogman98.NCS.items.ModItems;
 import Superfrogman98.NCS.proxies.CommonProxy;
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
@@ -50,6 +52,7 @@ public class NexCorpSolutions
         System.out.println("--------PreInit: " + MOD_NAME + " --------");
         proxy.preInit(event);
         ModItems.init();
+        ModBlocks.init();
         ConfigNexCorpSolutions.init(event);
     }
 
@@ -74,6 +77,18 @@ public class NexCorpSolutions
         public static void registerItems(RegistryEvent.Register<Item> event)
         {
             ModItems.register(event.getRegistry());
+            ModBlocks.registerItemBlocks(event.getRegistry());
+        }
+
+        @SubscribeEvent
+        public static void registerBlocks(RegistryEvent.Register<Block> event)
+        {
+            ModBlocks.register(event.getRegistry());
+        }
+        @SubscribeEvent
+        public static void registerModels(ModelRegistryEvent event)
+        {
+            ModBlocks.registerModels();
         }
 
     }

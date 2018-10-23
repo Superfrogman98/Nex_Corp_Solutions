@@ -2,6 +2,7 @@ package Superfrogman98.NCS.items;
 
 import Superfrogman98.NCS.NexCorpSolutions;
 import net.minecraft.item.Item;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 
 public class ModItems
