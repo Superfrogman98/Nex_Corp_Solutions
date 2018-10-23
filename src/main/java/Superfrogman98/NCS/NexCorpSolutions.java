@@ -51,8 +51,6 @@ public class NexCorpSolutions
     {
         System.out.println("--------PreInit: " + MOD_NAME + " --------");
         proxy.preInit(event);
-        ModItems.init();
-        ModBlocks.init();
         ConfigNexCorpSolutions.init(event);
     }
 

@@ -16,7 +16,7 @@ public class NCS_Tab extends CreativeTabs
     @Override
     public ItemStack getTabIconItem()
     {
-        return new ItemStack(ModItems.plateCarbon);
+        return new ItemStack(ModItems.items[0]);
     }
 
     @Override

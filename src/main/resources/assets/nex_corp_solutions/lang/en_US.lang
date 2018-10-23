@@ -13,7 +13,7 @@ tile.ore_hypon.name= Hypon Ore
 tile.basic_worktable.name= Basic Worktable
 
 #Creative Tab
-itemGroup.nex_corp_solutions= Nex Corp Solutions
+itemGroup.NCS= NCS
 
 #records
 item.record_how_its_made.name= Music Disc (How It's Made)
