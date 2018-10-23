@@ -1,64 +1,81 @@
 package Superfrogman98.NCS;
 
 /*
- * Created by Superfrogman98 on 5/20/2017.
+ * Created by Superfrogman98 on 10/22/2018.
  * A minecraft mod to add various processing machines
  */
 
 //imports
 
+import Superfrogman98.NCS.configs.ConfigNexCorpSolutions;
+import Superfrogman98.NCS.creative_tabs.NCS_Tab;
+import Superfrogman98.NCS.items.ModItems;
+import Superfrogman98.NCS.proxies.CommonProxy;
+import net.minecraft.item.Item;
+import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 
-@Mod(modid = NexCorpSolutions.modId, name = NexCorpSolutions.name, version = NexCorpSolutions.version, acceptedMinecraftVersions = "[1.12]")
+import java.util.logging.Logger;
 
-public class NexCorpSolutions {
+@Mod(modid = NexCorpSolutions.MOD_ID, name = NexCorpSolutions.MOD_NAME, version = NexCorpSolutions.MOD_VERSION, acceptedMinecraftVersions = "[1.12]")
 
-    public static final String modId = "nex_corp_solutions";
-    public static final String name = "Nex Corp Solutions";
-    public static final String version = "0.0.1-mc1.12";
-    //public static final NCS_Tab creativeTab = new NCS_Tab();
-    public static SimpleNetworkWrapper network;
+public class NexCorpSolutions
+{
 
+    public static final String MOD_ID = "nex_corp_solutions";
+    public static final String MOD_NAME = "Nex Corp Solutions";
+    public static final String MOD_VERSION = "0.0.1-mc1.12";
 
+    public static final NCS_Tab CREATIVE_TAB = new NCS_Tab();
 
-    @Mod.Instance(modId)
+    @SidedProxy(clientSide = "Superfrogman98.NCS.proxies.ClientProxy", serverSide = "Superfrogman98.NCS.proxies.ServerProxy")
+    public static CommonProxy proxy;
+
+    @Mod.Instance
     public static NexCorpSolutions instance;
 
-    @Mod.EventHandler
-    public void preInit(FMLPreInitializationEvent event ) {
 
-        System.out.println(name + " is loading!");
-        /*proxy.preInit(event);
-        ModSounds.init();
-        ModBlocksCrops.init();
+
+
+    @Mod.EventHandler
+    public void preInit(FMLPreInitializationEvent event )
+    {
+        System.out.println("--------PreInit: " + MOD_NAME + " --------");
+        proxy.preInit(event);
         ModItems.init();
-        ModBlocks.init();
-        GameRegistry.registerWorldGenerator(new ModWorldGen(),3);
-        network = NetworkRegistry.INSTANCE.newSimpleChannel(modId);
-        network.registerMessage(new PacketUpdateBasicWorktable.Handler(), PacketUpdateBasicWorktable.class, 0 , Side.CLIENT );
-        network.registerMessage(new PacketRequestUpdateBasicWorktable.Handler(), PacketRequestUpdateBasicWorktable.class, 1, Side.SERVER);
-        */
+        ConfigNexCorpSolutions.init(event);
     }
 
     @Mod.EventHandler
-    public void init(FMLInitializationEvent event) {
-        /*
+    public void init(FMLInitializationEvent event)
+    {
+        System.out.println("--------Init: " + MOD_NAME + " --------");
         proxy.init(event);
-
-        ModRecipes.init();
-        */
     }
 
     @Mod.EventHandler
-    public void postInit(FMLPostInitializationEvent event) {
-        /*
+    public void postInit(FMLPostInitializationEvent event)
+    {
+        System.out.println("--------PostInit: " + MOD_NAME + " --------");
         proxy.postInit(event);
-        CustomToolClasses.init();
-        */
+    }
+
+    @Mod.EventBusSubscriber
+    public static class RegistrationHandler
+    {
+        @SubscribeEvent
+        public static void registerItems(RegistryEvent.Register<Item> event)
+        {
+            ModItems.register(event.getRegistry());
+        }
+
     }
 
 
